@@ -1,0 +1,50 @@
+    responses = {
+        "hello": ["Hi there! How can I help you?", "Hello! What's on your mind?"],
+        "how are you": ["I'm just a bot, but I'm doing great!", "I'm always operational! How about you?"],
+        "bye": ["Goodbye! Have a great day!", "See you next time!"],
+        "help": ["You can ask me about greetings, how I'm doing, or say 'bye' to exit."],
+
+        # College-related queries
+        "admission process": [
+            "The admission process varies by college. Generally, you need to apply online, submit required documents, and appear for an entrance exam if necessary.",
+            "You can check the official website for details on admissions, eligibility, and deadlines."
+        ],
+        "courses offered": [
+            "Our college offers courses in Engineering, Business, Science, Arts, and more.",
+            "We have undergraduate and postgraduate programs in various disciplines."
+        ],
+        "fees structure": [
+            "The fee structure depends on the course. You can check the college website for the latest fee details.",
+            "Scholarships and financial aid options are also available."
+        ],
+        "scholarship options": [
+            "Yes, we offer merit-based and need-based scholarships. You can apply through the financial aid office.",
+            "There are various government and private scholarships available for eligible students."
+        ],
+        "hostel facilities": [
+            "Yes, we provide hostel facilities for students, with separate accommodations for boys and girls.",
+            "Hostel facilities include Wi-Fi, study rooms, and a cafeteria."
+        ],
+        "placement opportunities": [
+            "Our college has a strong placement cell that connects students with top companies.",
+            "We have partnerships with leading companies that offer internships and job placements."
+        ],
+        "library facilities": [
+            "Our library has a vast collection of books, digital resources, and research materials.",
+            "Students can access e-books, journals, and study materials anytime."
+        ],
+        "entrance exam": [
+            "Admissions may require an entrance exam. Check the official website for eligibility and exam details.",
+            "Some courses require specific entrance exams like JEE, CAT, or NEET."
+        ],
+        "faculty details": [
+            "Our faculty members are highly qualified and experienced in their respective fields.",
+            "We have a dedicated team of professors and guest lecturers from reputed universities."
+        ]
+    }
+
+    return random.choice(responses.get(user_input.lower(), [
+        "I'm not sure how to respond to that.", 
+        "Can you rephrase that?", 
+        "I don't have an answer for that yet, but I'm learning!"
+    ]))

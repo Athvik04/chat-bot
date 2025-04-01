@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styleIndex.css') }}"
+    />
+    <script>
+      // Function to handle sending chat messages and reading responses via TTS
+      async function sendMessage(event) {
+        event.preventDefault();
+        const message = document.getElementById("user_message").value;
+
+        // Send the message to the server
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+
+        const result = await response.json();
+        const botResponse = result.response;
+
+        // Display the messages
+        document.getElementById(
+          "chat_output"
+        ).innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+        document.getElementById(
+          "chat_output"
+        ).innerHTML += `<p><strong>Bot:</strong> ${botResponse}</p>`;
+
+        // Clear the input field
+        document.getElementById("user_message").value = "";
+
+        // Use text-to-speech to read the bot's response
+        if ("speechSynthesis" in window) {
+          const speech = new SpeechSynthesisUtterance(botResponse);
+          speech.lang = "en-US"; // You can change this to other languages as needed
+          window.speechSynthesis.speak(speech);
+        } else {
+          console.log("Your browser does not support text-to-speech.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome, {{ username }}!</h2>
+      <a href="/logout" class="logout">Logout</a>
+
+      <h3>Chat with our bot:</h3>
+      <div id="chat_output"></div>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" id="user_message" required />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
+</html>

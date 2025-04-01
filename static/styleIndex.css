@@ -1,0 +1,103 @@
+/* Apply a background color for the entire body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+}
+
+/* General container styling */
+.container {
+    width: 98%;
+    max-width: 500px; /* Center and limit the width */
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+/* Header styling */
+h2, h3 {
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for form labels and inputs */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Link styling for login/signup links */
+p {
+    text-align: center;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Chat output container */
+#chat_output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+#chat_output p {
+    margin: 5px 0;
+}
+
+.logout {
+    display: block;
+    text-align: right;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
